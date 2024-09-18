@@ -1,0 +1,32 @@
+---
+  - name: Install & Configure Apache
+    hosts: all
+    user: admin
+    become: true  # This replaces user: root, to run tasks as root
+
+    pre_tasks:
+      - name: Update APT Cache
+        apt:
+          update_cache: true
+          cache_valid_time: 3600
+
+    handlers:
+      - name: Restart Apache
+        service:
+          name: apache2
+          state: restarted
+
+    tasks:
+      - name: Install Apache
+        apt:
+          name: apache2
+          state: present
+
+      - name: Configure Apache
+        template:
+          src: apache.conf.j2
+          dest: /etc/apache2/apache.conf
+          owner: admin
+          group: admin
+          mode: '0644'
+        notify: Restart Apache
