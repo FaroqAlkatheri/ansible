@@ -1,6 +1,14 @@
 [all]
 13.49.75.71
 51.20.107.198
+16.171.42.141
+
+[apache]
+13.49.75.71
+51.20.107.198
+
+[postgresql]
+16.171.42.141
 
 [all:vars]
 ansible_python_interpreter = /usr/bin/python3 
