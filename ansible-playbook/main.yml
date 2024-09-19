@@ -14,9 +14,9 @@
       - role: apache 
 
 
-  - name: Postgresql
-    hosts: postgresql
-    user: admin
-    become: true  # This replaces user: root, to run tasks as root
-    roles: 
-      - role: postgres
+  # - name: Postgresql
+  #   hosts: postgresql
+  #   user: admin
+  #   become: true  # This replaces user: root, to run tasks as root
+  #   roles: 
+  #     - role: postgres
